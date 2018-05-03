@@ -4,10 +4,12 @@ from . import views
 
 
 urlpatterns = [
-    # ex: /polls/
+    # ex: /api/sensor/
     path('', views.index, name='index'),
-    # ex: /polls/5/
-    path('<int:question_id>/', views.status, name='status'),
+    # ex: /api/sensor/accelerator/
+    path('accelerator/', views.accelerator, name='accelerator'),
+    # ex: /api/sensor/gyro/
+    path('gyro/', views.gyro, name='gyro'),
     # ex: /polls/5/results/
     path('<int:question_id>/drive/', views.drive, name='drive'),
     # ex: /polls/5/vote/
