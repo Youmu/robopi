@@ -40,5 +40,18 @@ WSGIScriptAlias /api /var/robopi/robopi_api/robopi_api/wsgi.py
 * Restart apache
 ```
 sudo /etc/init.d/apache2 restart
-```:q
+```
+
+### Config Permission
+* /etc/udev/rules.d/99-com.rules
+```
+SUBSYSTEM=="input", GROUP="input", MODE="0660"
+SUBSYSTEM=="i2c-dev", GROUP="i2c", MODE="0660"
+SUBSYSTEM=="spidev", GROUP="spi", MODE="0660"
+SUBSYSTEM=="bcm2835-gpiomem", GROUP="gpio", MODE="0660"
+
+SUBSYSTEM=="gpio", GROUP="gpio", MODE="0660"
+```
+
+
 
