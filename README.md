@@ -53,5 +53,14 @@ SUBSYSTEM=="bcm2835-gpiomem", GROUP="gpio", MODE="0666"
 SUBSYSTEM=="gpio", GROUP="gpio", MODE="0666"
 ```
 
-
+## Install OLED service
+* Make in /var/robopi/oledsrv/
+```
+cd /var/robopi/oledsrv/
+make
+```
+* Install service
+```
+sudo ln -s /var/robopi/oledsrv/oledsrv.service /etc/systemd/system/multi-user.target.wants/oledsrv.service
+```
 
