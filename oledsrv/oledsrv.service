@@ -1,0 +1,10 @@
+[Unit]
+Description=OLED daemon
+
+[Service]
+Type=simple
+WorkingDirectory=/var/robopi/oledsrv/
+ExecStart=/var/robopi/oledsrv/out/oledsrv
+
+[Install]
+WantedBy=multi-user.target
