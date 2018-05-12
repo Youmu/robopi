@@ -54,6 +54,8 @@ SUBSYSTEM=="gpio", GROUP="gpio", MODE="0666"
 ```
 
 ## Install OLED service
+* Install BCM2835 libs
+http://www.airspayce.com/mikem/bcm2835/
 * Make in /var/robopi/oledsrv/
 ```
 cd /var/robopi/oledsrv/
