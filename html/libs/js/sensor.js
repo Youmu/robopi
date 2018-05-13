@@ -26,6 +26,10 @@ function loadData($scope, $http) {
     .then(function(data){
         $scope.sensor.gyro = data.data;
     });
+    $http.get("api/sensor/baro/")
+    .then(function(data){
+        $scope.sensor.baro = data.data.baro;
+    });
     model.temp += 1;
     
 }

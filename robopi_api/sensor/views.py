@@ -1,5 +1,7 @@
 from django.http import HttpResponse
 from device.mpu6050 import mpu6050
+from device.bmp180 import BMP180
+
 def index(request):
     return HttpResponse("Hello World! It is working")
 
@@ -14,6 +16,11 @@ def gyro(request):
     sensor.set_gyro_range(mpu6050.GYRO_RANGE_250DEG)
     gyro_data = sensor.get_gyro_data()
     return HttpResponse(gyro_data.__str__())
+
+def baro(request):
+    sensor = BMP180.BMP180()
+    pressure = sensor.read_pressure()
+    return HttpResponse('{{"baro":{0}}}'.format(pressure))
 
 def drive(request, question_id):
     response = "You're driving the robot %s."
