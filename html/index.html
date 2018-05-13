@@ -1,28 +1,31 @@
-<html>
+<html ng-app="sensorApp">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Robo Pi</title>
     <link rel="stylesheet" href="libs/css/bootstrap.min.css"/>
     <script src="libs/js/jquery-3.0.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <script src="libs/js/bootstrap.min.js"></script>
-    
+    <script src="libs/js/angular.min.js"></script>
+    <script src="libs/js/sensor.js"></script>
   </head>
-  <body>
+  <body ng-controller="SensorCtrl">
     <div class="container">
       <div class="jumbotron">
-      <h1>Robo Pi</h1>
+      <h1>{{sensor.name}}</h1>
       <p>Sensor data will be shown here</p> 
       </div>
       <div class="table-responsive">
       <table class="table table-striped table-bordered">
-        <tr><th>Head1</th><th>Head2</th></tr>
-        <tr><td>Head1</td><td>Head2</td></tr>
-        <tr><td>Head1</td><td>Head2</td></tr>
+      <thead>
+        <tr><th>Sensor</th><th>Value</th></tr>
+      </thead>
+        <tr><td>Acceleration</td><td>{{sensor.accel}}</td></tr>
+        <tr><td>Angular Velocity</td><td>{{sensor.gyro}}</td></tr>
+        <tr><td>Temperature</td><td>{{sensor.temp}}</td></tr>
       </table>
       </div>
-      <button type="button" class="btn btn-primary">Refresh</button>
+      <button type="button" class="btn btn-primary" ng-click="fetchData()">Refresh</button>
     </div>
   </body>
 </html>
