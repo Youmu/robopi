@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from device.mpu6050 import mpu6050
 from device.bmp180 import BMP180
-
+from device.pca9685 import pca9685
 def index(request):
     return HttpResponse("Hello World! It is working")
 
@@ -21,10 +21,6 @@ def baro(request):
     sensor = BMP180.BMP180()
     pressure = sensor.read_pressure()
     return HttpResponse('{{"baro":{0}}}'.format(pressure))
-
-def drive(request, question_id):
-    response = "You're driving the robot %s."
-    return HttpResponse(response % question_id)
 
 def refresh(request, question_id):
     return HttpResponse("You're refreshing the sensor data %s." % question_id)
