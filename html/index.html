@@ -1,31 +1,70 @@
 <html ng-app="sensorApp">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Robo Pi</title>
-    <link rel="stylesheet" href="libs/css/bootstrap.min.css"/>
-    <script src="libs/js/jquery-3.0.0.min.js"></script>
-    <script src="libs/js/bootstrap.min.js"></script>
-    <script src="libs/js/angular.min.js"></script>
-    <script src="libs/js/sensor.js"></script>
-  </head>
-  <body ng-controller="SensorCtrl">
-    <div class="container">
-      <div class="jumbotron">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Robo Pi</title>
+  <link rel="stylesheet" href="libs/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="libs/css/buttonarray.css" />
+  <script src="libs/js/jquery-3.0.0.min.js"></script>
+  <script src="libs/js/bootstrap.min.js"></script>
+  <script src="libs/js/angular.min.js"></script>
+  <script src="libs/js/sensor.js"></script>
+</head>
+
+<body ng-controller="SensorCtrl">
+  <div class="container">
+    <div class="jumbotron">
       <h1>{{sensor.name}}</h1>
-      <p>Sensor data will be shown here</p> 
-      </div>
-      <div class="table-responsive">
-      <table class="table table-striped table-bordered">
-      <thead>
-        <tr><th>Sensor</th><th>Value</th></tr>
-      </thead>
-        <tr><td>Acceleration</td><td>{{sensor.accel}}</td></tr>
-        <tr><td>Angular Velocity</td><td>{{sensor.gyro}}</td></tr>
-        <tr><td>Barometer</td><td>{{sensor.baro}}</td></tr>
-      </table>
-      </div>
-      <button type="button" class="btn btn-primary" ng-click="fetchData()">Refresh</button>
+      <p>Sensor data will be shown here</p>
     </div>
-  </body>
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>Sensor</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tr>
+          <td>Acceleration</td>
+          <td>{{sensor.accel}}</td>
+        </tr>
+        <tr>
+          <td>Angular Velocity</td>
+          <td>{{sensor.gyro}}</td>
+        </tr>
+        <tr>
+          <td>Barometer</td>
+          <td>{{sensor.baro}}</td>
+        </tr>
+      </table>
+    </div>
+    <button type="button" class="btn btn-primary" ng-click="fetchData()">Refresh</button>
+    <div class="panel panel-default" style="width:400px">
+      <div class="row">
+        <div class="btn-group col-sm-12">
+          <button class="btn btn-default col-md-4"></button>
+          <button type="button" class="btn btn-primary col-md-4" ng-click="moveRobot(0,100,0)">UP</button>
+          <button class="btn btn-default col-md-4"></button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="btn-group col-sm-12">
+          <button type="button" class="btn btn-primary col-md-4" ng-click="moveRobot(-100,0,0)">LEFT</button>
+          <button type="button" class="btn btn-primary col-md-4" ng-click="moveRobot(0,0,0)">STOP</button>
+          <button type="button" class="btn btn-primary col-md-4" ng-click="moveRobot(100,0,0)">RIGHT</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="btn-group col-sm-12">
+          <button class="btn btn-default col-md-4"></button>
+          <button type="button" class="btn btn-primary col-md-4" ng-click="moveRobot(0,-100,0)">DOWN</button>
+          <button class="btn btn-default col-md-4"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>

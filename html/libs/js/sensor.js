@@ -14,6 +14,7 @@ sensorApp.controller("SensorCtrl", function($scope, $http){
     loadData($scope, $http);
     $scope.sensor = model;
     $scope.fetchData = function(){loadData($scope, $http)};
+    $scope.moveRobot = function(x,y,r){moveRobot($scope, $http, x, y, r)};
 });
 
 function loadData($scope, $http) {
@@ -32,4 +33,9 @@ function loadData($scope, $http) {
     });
     model.temp += 1;
     
+}
+
+function moveRobot($scope, $http, x, y, r){
+    console.log("Move Robot");
+    $http.get(`api/motor/move/?x=${x}&y=${y}&r=${r}`);
 }

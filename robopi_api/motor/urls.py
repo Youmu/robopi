@@ -6,6 +6,8 @@ from . import views
 urlpatterns = [
     # ex: /api/motor/
     path('', views.index, name='index'),
-    # ex: /api/motor/<channel>/drive/<pulse>
-    path('<int:channel_id>/drive/<int:pulse_width>/', views.drive, name='drive'),
+    # ex: /api/motor/move?x=<x>&y=<y>&r=<r>
+    path('move/', views.move, name='move'),
+    # ex: /api/motor/<channel>/directdrive/<pulse>
+    path('<int:channel_id>/directdrive/<int:pulse_width>/', views.directdrive, name='directdrive'),
 ]
